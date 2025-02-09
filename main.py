@@ -40,6 +40,12 @@ def main():
         for object in drawable:
             object.draw(screen)
 
+        for asteroid in asteroids:
+            for shot in shots:
+                if shot.chech_collision(asteroid):
+                    shot.kill()
+                    asteroid.split()
+
         for object in asteroids:
             if object.chech_collision(player):
                 print("Game over!")
