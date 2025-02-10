@@ -19,4 +19,8 @@ class Asteroid(CircleShape):
         if self.radius <= ASTEROID_MIN_RADIUS:
             return
         else:
-            angle = random.uniform(20, 50)
+            random_angle = random.uniform(20, 50)
+            A1 = Asteroid(self.position.x, self.position.y, (self.radius - ASTEROID_MIN_RADIUS ))
+            A2 = Asteroid(self.position.x, self.position.y, (self.radius - ASTEROID_MIN_RADIUS ))
+            A1.velocity = pygame.math.Vector2.rotate(self.velocity, random_angle) * 1.2
+            A2.velocity = pygame.math.Vector2.rotate(self.velocity, -random_angle) * 1.2
